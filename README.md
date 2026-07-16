@@ -1,77 +1,95 @@
-# Portfolio Website — Diarra Alifa Pratama
+# My Portfolio — Diarra Alifa Pratama
 
-Website portfolio satu halaman (single-page) untuk menampilkan profil, pengalaman, proyek, dan repository GitHub secara otomatis. Dibangun dengan HTML, CSS, dan JavaScript murni, memakai Bootstrap 5 untuk komponen UI, dan di-hosting gratis lewat GitHub Pages.
+Portfolio web statis satu halaman yang memperkenalkan profil, pengalaman, proyek, dan repositori GitHub secara ringkas dan modern.
 
-## ✨ Fitur
+Dibangun dengan HTML, CSS, dan JavaScript vanilla, menggunakan Bootstrap 5 untuk tata letak responsif, serta GitHub Pages untuk hosting gratis.
 
-- **Navbar sticky** dengan link ke setiap section (Home, About, Projects, Repositories, Contact)
-- **Route line** — navigasi vertikal ala "peta transit" di sisi kiri (desktop) yang otomatis menyorot section aktif saat scroll
-- **Hero section** — perkenalan singkat + ilustrasi SVG kota
-- **About** — fokus di Web Development, minat di PC hardware, dan riwayat magang di Honda Siap Motor
-- **Featured Projects** — kartu statis untuk proyek unggulan (termasuk Aplikasi Pengaduan Sekolah)
-- **GitHub Repositories** — diambil otomatis dari GitHub REST API lewat Fetch API, lengkap dengan status loading (skeleton) dan penanganan error + tombol retry
-- **Footer/Contact** — link ke GitHub, email, dan media sosial
-- Responsif penuh, mendukung keyboard navigation, dan menghormati preferensi `prefers-reduced-motion`
+## 🌟 Ringkasan
 
-## 🛠️ Tech Stack
+- Halaman landing portfolio satu halaman yang ramah mobile dan desktop
+- Navigasi atas plus sidebar route line untuk pengalaman scroll yang interaktif
+- Data repositori GitHub ditarik otomatis dari GitHub API
+- Sidebar route line otomatis bersembunyi setelah 5 detik untuk tampilan lebih bersih
+- Animasi sederhana dengan `IntersectionObserver`, transisi, dan skeleton loader
 
-- HTML5 & CSS3 (custom properties / CSS variables)
-- JavaScript (Vanilla, ES6+, Fetch API)
-- [Bootstrap 5](https://getbootstrap.com/) (via CDN)
-- [Bootstrap Icons](https://icons.getbootstrap.com/) (via CDN)
+## ✨ Fitur Utama
+
+- Sticky navbar dengan navigasi internal ke setiap section
+- Sidebar route line desktop yang menyorot section aktif
+- Auto-hide sidebar setelah 5 detik untuk tampilan yang lebih rapi
+- Hero section profil personal dengan ilustrasi SVG custom
+- Bagian About, Projects, Repositories, dan Contact
+- Pengambilan data repo GitHub secara otomatis dengan fallback error handling
+- Responsif penuh dan mendukung preferensi `prefers-reduced-motion`
+
+## 🧩 Teknologi
+
+- HTML5
+- CSS3 (custom properties, responsive layout)
+- JavaScript (ES6+, Fetch API)
+- Bootstrap 5 (via CDN)
+- Bootstrap Icons (via CDN)
 - Google Fonts: Space Grotesk, Inter, JetBrains Mono
-- GitHub REST API (`/users/{username}/repos`)
+- GitHub REST API
 
-## 📁 Struktur File
+## 📁 Struktur Repository
 
 ```
 .
-├── index.html    # Struktur halaman & semua section
-├── style.css     # Styling custom di luar Bootstrap
-├── script.js     # Fetch GitHub API, navigasi aktif, animasi scroll, dll.
-└── README.md
+├── index.html    # Struktur halaman utama dan konten portfolio
+├── style.css     # Styling custom untuk tampilan dan animasi
+├── script.js     # Logika interaktif, fetch GitHub API, auto-hide sidebar
+└── README.md     # Dokumentasi proyek
 ```
 
-## ⚙️ Konfigurasi Sebelum Deploy
+## ✅ Pengaturan yang Perlu Diperbarui
 
-Sebelum di-publish, sesuaikan bagian berikut:
+1. **Username GitHub**
+   - Buka `script.js`
+   - Ubah nilai `GITHUB_USERNAME` menjadi `InterSky-Codex`
 
-1. **Username GitHub** — di `script.js`, ganti:
-   ```js
-   const GITHUB_USERNAME = "GITHUB_USERNAME"; // ganti dengan username GitHub kamu
-   ```
+2. **Link kontak**
+   - Di `index.html`, sesuaikan tautan email dan tautan media sosial di bagian Contact
 
-2. **Email & media sosial** — di `index.html`, cari komentar `<!-- TODO -->` untuk:
-   - Alamat email (mailto)
-   - Link GitHub, LinkedIn, Instagram di section Contact
+3. **Detail proyek**
+   - Perbarui teks dan tombol pada bagian Projects agar sesuai dengan proyek nyata kamu
 
-3. **Link proyek** — di section Projects, ganti `href="#"` pada tombol *Code*/*Live* dengan link repository/demo yang sesuai, dan lengkapi 2 kartu proyek placeholder (Project 2 & 3) sesuai proyek kamu.
+## 🚀 Menjalankan di Lokal
 
-## 🚀 Menjalankan Secara Lokal
-
-Karena website ini murni statis, cukup buka `index.html` langsung di browser, atau gunakan local server sederhana (opsional, untuk menghindari masalah CORS pada beberapa browser):
+Website bisa dijalankan langsung tanpa server, tapi untuk pengalaman terbaik gunakan server lokal:
 
 ```bash
-# Python
-python3 -m http.server 8000
-
-# atau Node.js
-npx serve .
+cd c:\laragon\www\portfolio-diarra
+python -m http.server 8000
 ```
 
-Lalu buka `http://localhost:8000`.
+Lalu buka:
+
+```text
+http://localhost:8000
+```
 
 ## 🌐 Deploy ke GitHub Pages
 
-1. Push repository ini ke GitHub (branch `main`).
-2. Buka **Settings → Pages** di repository.
-3. Pada bagian **Branch**, pilih `main` dan folder `/ (root)`, lalu **Save**.
-4. Tunggu 1–2 menit, situs akan tersedia di:
-   ```
-   https://<username-github>.github.io/<nama-repo>/
-   ```
-   atau `https://<username-github>.github.io/` jika nama repo adalah `<username-github>.github.io`.
+1. Pastikan semua perubahan sudah di-push ke branch `main`
+2. Buka repo GitHub: `https://github.com/InterSky-Codex/My-Portfolio`
+3. Pergi ke `Settings → Pages`
+4. Pilih source:
+   - Branch: `main`
+   - Folder: `/ (root)`
+5. Klik `Save`
+
+Setelah beberapa menit, GitHub Pages akan menerbitkan situs di:
+
+```text
+https://intersky-codex.github.io/My-Portfolio/
+```
+
+## 📌 Catatan
+
+- Pastikan `index.html` berada di root repository.
+- Jika ingin pakai custom domain, tambahkan file `CNAME` dengan nama domain kamu.
 
 ## 📄 Lisensi
 
-Bebas digunakan dan dimodifikasi untuk keperluan pribadi/portfolio.
+Lisensi bebas. Gunakan, pelajari, dan modifikasi sesuai kebutuhan portfolio kamu.
