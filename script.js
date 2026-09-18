@@ -3,14 +3,9 @@
    script.js
    ========================================================= */
 
-/* ---------------------------------------------------------
-   1) CONFIG — replace with your own GitHub username
-   --------------------------------------------------------- */
-const GITHUB_USERNAME = "InterSky-Codex"; // <-- REPLACE THIS with your actual GitHub username
-const MAX_REPOS_VISIBLE = 6; // how many repo cards to show before "Show more"
+const GITHUB_USERNAME = "InterSky-Codex";
+const MAX_REPOS_VISIBLE = 6;
 
-/* Approximate colors for common languages, used for the small
-   language dot on each repo card (falls back to a neutral gray). */
 const LANGUAGE_COLORS = {
   JavaScript: "#f1e05a",
   TypeScript: "#3178c6",
@@ -45,17 +40,11 @@ document.addEventListener("DOMContentLoaded", () => {
   initGithubRepos();
 });
 
-/* ---------------------------------------------------------
-   Footer year
-   --------------------------------------------------------- */
 function setYear() {
   const yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 }
 
-/* ---------------------------------------------------------
-   Navbar background/border once the page has scrolled
-   --------------------------------------------------------- */
 function initNavbarScrollState() {
   const nav = document.getElementById("mainNav");
   if (!nav) return;
@@ -63,48 +52,46 @@ function initNavbarScrollState() {
   const toggle = () => {
     nav.classList.toggle("is-scrolled", window.scrollY > 12);
   };
+
   toggle();
   window.addEventListener("scroll", toggle, { passive: true });
 }
 
-/* ---------------------------------------------------------
-   Highlight the active section in both the top navbar and
-   the vertical "route line" as the user scrolls.
-   --------------------------------------------------------- */
 function initSectionSpy() {
   const sections = Array.from(document.querySelectorAll("main section[id], footer[id]"));
   if (sections.length === 0) return;
 
-  const navLinks = Array.from(document.querySelectorAll('#mainNavList [data-section]'));
+  const navLinks = Array.from(document.querySelectorAll("#mainNavList [data-section]"));
   const routeStops = Array.from(document.querySelectorAll(".route-stop[data-section]"));
 
   const setActive = (id) => {
     navLinks.forEach((link) => {
       link.classList.toggle("active", link.dataset.section === id);
     });
+
     routeStops.forEach((stop) => {
       const isActive = stop.dataset.section === id;
       stop.classList.toggle("active", isActive);
-      if (isActive) {
-        stop.setAttribute("aria-current", "true");
-      } else {
-        stop.removeAttribute("aria-current");
-      }
+
+      if (isActive) stop.setAttribute("aria-current", "true");
+      else stop.removeAttribute("aria-current");
     });
   };
 
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          setActive(entry.target.id);
-        }
-      });
-    },
-    { rootMargin: "-45% 0px -45% 0px", threshold: 0 }
-  );
+  const updateActiveSection = () => {
+    const marker = window.scrollY + window.innerHeight * 0.45;
+    let current = sections[0];
 
-  sections.forEach((section) => observer.observe(section));
+    sections.forEach((section) => {
+      if (section.offsetTop <= marker) current = section;
+    });
+
+    setActive(current.id);
+  };
+
+  updateActiveSection();
+  window.addEventListener("scroll", updateActiveSection, { passive: true });
+  window.addEventListener("resize", updateActiveSection);
 }
 
 function initRouteLineAutoHide() {
@@ -112,7 +99,9 @@ function initRouteLineAutoHide() {
   if (!routeLine) return;
 
   let hideTimer = null;
+
   const hideRouteLine = () => routeLine.classList.add("collapsed");
+
   const resetRouteLine = () => {
     routeLine.classList.remove("collapsed");
     if (hideTimer) clearTimeout(hideTimer);
@@ -127,14 +116,12 @@ function initRouteLineAutoHide() {
   });
 }
 
-/* ---------------------------------------------------------
-   Collapse the mobile navbar automatically after a link tap
-   --------------------------------------------------------- */
 function initMobileNavCollapse() {
   const collapseEl = document.getElementById("navMenu");
   if (!collapseEl || typeof bootstrap === "undefined") return;
 
   const bsCollapse = bootstrap.Collapse.getOrCreateInstance(collapseEl, { toggle: false });
+
   collapseEl.querySelectorAll(".nav-link, .btn").forEach((link) => {
     link.addEventListener("click", () => {
       if (collapseEl.classList.contains("show")) bsCollapse.hide();
@@ -142,21 +129,23 @@ function initMobileNavCollapse() {
   });
 }
 
-/* ---------------------------------------------------------
-   Simple fade/slide-in reveal for elements marked .reveal
-   --------------------------------------------------------- */
 function initScrollReveal() {
   const items = document.querySelectorAll(".reveal");
   if (items.length === 0) return;
 
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    items.forEach((item) => item.classList.add("is-visible"));
+    return;
+  }
+
   const observer = new IntersectionObserver(
     (entries, obs) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const delay = entry.target.dataset.revealDelay || 0;
-          setTimeout(() => entry.target.classList.add("is-visible"), Number(delay));
-          obs.unobserve(entry.target);
-        }
+        if (!entry.isIntersecting) return;
+
+        const delay = Number(entry.target.dataset.revealDelay || 0);
+        window.setTimeout(() => entry.target.classList.add("is-visible"), delay);
+        obs.unobserve(entry.target);
       });
     },
     { threshold: 0.15 }
@@ -165,29 +154,22 @@ function initScrollReveal() {
   items.forEach((item) => observer.observe(item));
 }
 
-/* ---------------------------------------------------------
-   Back-to-top button
-   --------------------------------------------------------- */
 function initBackToTop() {
   const btn = document.getElementById("backToTop");
   if (!btn) return;
 
-  window.addEventListener(
-    "scroll",
-    () => btn.classList.toggle("is-visible", window.scrollY > 500),
-    { passive: true }
-  );
+  const toggle = () => {
+    btn.classList.toggle("is-visible", window.scrollY > 500);
+  };
+
+  toggle();
+  window.addEventListener("scroll", toggle, { passive: true });
 
   btn.addEventListener("click", () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
 }
 
-/* ---------------------------------------------------------
-   2) GITHUB REPOSITORIES — Fetch API
-   Calls https://api.github.com/users/{GITHUB_USERNAME}/repos
-   and renders the result as a grid of cards.
-   --------------------------------------------------------- */
 function initGithubRepos() {
   const grid = document.getElementById("repo-grid");
   const status = document.getElementById("repo-status");
@@ -205,7 +187,7 @@ function initGithubRepos() {
   fetchRepos()
     .then((repos) => {
       const cleaned = repos
-        .filter((repo) => !repo.fork) // skip forks, only show original work
+        .filter((repo) => !repo.fork)
         .sort((a, b) => new Date(b.pushed_at) - new Date(a.pushed_at));
 
       if (cleaned.length === 0) {
@@ -227,16 +209,12 @@ function initGithubRepos() {
       retryBtn.type = "button";
       retryBtn.className = "btn btn-outline-ink btn-sm rounded-0 ms-2";
       retryBtn.textContent = "Retry";
-      retryBtn.addEventListener("click", () => initGithubRepos());
+      retryBtn.addEventListener("click", initGithubRepos);
       status.appendChild(retryBtn);
     });
 }
 
 async function fetchRepos() {
-  if (!GITHUB_USERNAME || GITHUB_USERNAME === "GITHUB_USERNAME") {
-    throw new Error("Set your GITHUB_USERNAME at the top of script.js");
-  }
-
   const url = `https://api.github.com/users/${encodeURIComponent(GITHUB_USERNAME)}/repos?sort=updated&direction=desc&per_page=100`;
   const response = await fetch(url, {
     headers: { Accept: "application/vnd.github+json" },
@@ -255,6 +233,7 @@ async function fetchRepos() {
 
 function renderSkeletons(grid, count) {
   grid.innerHTML = "";
+
   for (let i = 0; i < count; i++) {
     const col = document.createElement("div");
     col.className = "col-md-6 col-lg-4";
@@ -291,7 +270,7 @@ function renderRepoCards(grid, repos) {
     document.getElementById("showMoreRepos").addEventListener("click", (e) => {
       remaining.forEach((repo) => grid.insertBefore(buildRepoCard(repo), moreWrap));
       moreWrap.remove();
-      e.target.blur();
+      e.currentTarget.blur();
     });
   }
 }
@@ -304,11 +283,18 @@ function buildRepoCard(repo) {
   const langColor = LANGUAGE_COLORS[language] || DEFAULT_LANG_COLOR;
   const description = repo.description ? escapeHtml(repo.description) : "No description provided.";
   const updated = repo.pushed_at
-    ? new Date(repo.pushed_at).toLocaleDateString(undefined, { year: "numeric", month: "short" })
+    ? new Date(repo.pushed_at).toLocaleDateString(undefined, {
+        year: "numeric",
+        month: "short",
+      })
     : "";
 
+  const repoUrl = isSafeGithubUrl(repo.html_url)
+    ? repo.html_url
+    : `https://github.com/${encodeURIComponent(GITHUB_USERNAME)}`;
+
   col.innerHTML = `
-    <a class="repo-card text-decoration-none" href="${repo.html_url}" target="_blank" rel="noopener" aria-label="View ${escapeHtml(repo.name)} on GitHub">
+    <a class="repo-card text-decoration-none" href="${repoUrl}" target="_blank" rel="noopener" aria-label="View ${escapeHtml(repo.name)} on GitHub">
       <div class="repo-card-header">
         <span class="repo-name">${escapeHtml(repo.name)}</span>
         <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i>
@@ -325,10 +311,19 @@ function buildRepoCard(repo) {
       </div>
     </a>
   `;
+
   return col;
 }
 
-/* Basic HTML-escaping for text coming back from the API */
+function isSafeGithubUrl(value) {
+  try {
+    const url = new URL(value);
+    return url.protocol === "https:" && url.hostname === "github.com";
+  } catch {
+    return false;
+  }
+}
+
 function escapeHtml(str) {
   const div = document.createElement("div");
   div.textContent = String(str);
