@@ -3,418 +3,138 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Diarra Alifa Pratama — Web Developer</title>
-  <meta name="description" content="Diarra Alifa Pratama — Student & Web Developer based in Bandung. Portfolio, projects and GitHub repositories." />
-
-  <!-- Minimal inline favicon (signal-yellow dot) so no extra asset file is needed -->
+  <title>Diarra Alifa Pratama — Junior Web Developer & IT Support</title>
+  <meta name="description" content="Junior Web Developer & IT Support Specialist based in Bandung, Indonesia. Portfolio, projects, experience and GitHub repositories." />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2316171A'/%3E%3Ccircle cx='16' cy='16' r='7' fill='%23FFCC00'/%3E%3C/svg%3E" />
-
-  <!-- Google Fonts: Space Grotesk (display), Inter (body), JetBrains Mono (labels/data) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
-
-  <!-- Bootstrap 5 CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <!-- Bootstrap Icons (for contact / repo link icons) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
-
-  <!-- Custom styles -->
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-  <!-- ============================= -->
-  <!-- ROUTE LINE (signature nav) — desktop only, mirrors the top navbar as a "transit line" of stops -->
-  <!-- ============================= -->
   <nav class="route-line d-none d-lg-flex flex-column" aria-label="Section progress">
-    <a href="#home" class="route-stop" data-section="home">
-      <span class="route-dot"></span>
-      <span class="route-label"><span class="route-num">01</span>Home</span>
-    </a>
-    <a href="#about" class="route-stop" data-section="about">
-      <span class="route-dot"></span>
-      <span class="route-label"><span class="route-num">02</span>About</span>
-    </a>
-    <a href="#projects" class="route-stop" data-section="projects">
-      <span class="route-dot"></span>
-      <span class="route-label"><span class="route-num">03</span>Projects</span>
-    </a>
-    <a href="#repositories" class="route-stop" data-section="repositories">
-      <span class="route-dot"></span>
-      <span class="route-label"><span class="route-num">04</span>Repositories</span>
-    </a>
-    <a href="#contact" class="route-stop" data-section="contact">
-      <span class="route-dot"></span>
-      <span class="route-label"><span class="route-num">05</span>Contact</span>
-    </a>
+    <a href="#home" class="route-stop" data-section="home"><span class="route-dot"></span><span class="route-label"><span class="route-num">01</span>Home</span></a>
+    <a href="#about" class="route-stop" data-section="about"><span class="route-dot"></span><span class="route-label"><span class="route-num">02</span>About</span></a>
+    <a href="#experience" class="route-stop" data-section="experience"><span class="route-dot"></span><span class="route-label"><span class="route-num">03</span>Experience</span></a>
+    <a href="#projects" class="route-stop" data-section="projects"><span class="route-dot"></span><span class="route-label"><span class="route-num">04</span>Projects</span></a>
+    <a href="#skills" class="route-stop" data-section="skills"><span class="route-dot"></span><span class="route-label"><span class="route-num">05</span>Skills</span></a>
+    <a href="#repositories" class="route-stop" data-section="repositories"><span class="route-dot"></span><span class="route-label"><span class="route-num">06</span>GitHub</span></a>
+    <a href="#contact" class="route-stop" data-section="contact"><span class="route-dot"></span><span class="route-label"><span class="route-num">07</span>Contact</span></a>
   </nav>
-
-  <!-- ============================= -->
-  <!-- NAVBAR -->
-  <!-- ============================= -->
   <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
     <div class="container-fluid px-3 px-lg-5">
       <a class="navbar-brand brand-mark" href="#home">DIARRA<span class="text-signal">.</span>DEV</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"
-        aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
       <div class="collapse navbar-collapse" id="navMenu">
         <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2" id="mainNavList">
           <li class="nav-item"><a class="nav-link" href="#home" data-section="home"><span class="nav-index">01</span>Home</a></li>
           <li class="nav-item"><a class="nav-link" href="#about" data-section="about"><span class="nav-index">02</span>About</a></li>
-          <li class="nav-item"><a class="nav-link" href="#projects" data-section="projects"><span class="nav-index">03</span>Projects</a></li>
-          <li class="nav-item"><a class="nav-link" href="#repositories" data-section="repositories"><span class="nav-index">04</span>Repositories</a></li>
-          <li class="nav-item"><a class="nav-link" href="#contact" data-section="contact"><span class="nav-index">05</span>Contact</a></li>
-          <li class="nav-item ms-lg-2">
-            <a class="btn btn-signal btn-sm rounded-0 px-3" href="#contact">Say Hello</a>
-          </li>
+          <li class="nav-item"><a class="nav-link" href="#experience" data-section="experience"><span class="nav-index">03</span>Experience</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projects" data-section="projects"><span class="nav-index">04</span>Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="#skills" data-section="skills"><span class="nav-index">05</span>Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="#repositories" data-section="repositories"><span class="nav-index">06</span>GitHub</a></li>
+          <li class="nav-item ms-lg-2"><a class="btn btn-signal btn-sm rounded-0 px-3" href="#contact">Say Hello</a></li>
         </ul>
       </div>
     </div>
   </nav>
-
   <main>
-    <!-- ============================= -->
-    <!-- HERO -->
-    <!-- ============================= -->
     <section id="home" class="hero-section">
       <div class="container px-3 px-lg-5">
         <div class="row align-items-center gy-5">
           <div class="col-lg-7 reveal">
-            <div class="status-plate mb-4">
-              <span class="status-dot" aria-hidden="true"></span>
-              STATUS: OPEN TO OPPORTUNITIES
-            </div>
-
+            <div class="status-plate mb-4"><span class="status-dot" aria-hidden="true"></span>STATUS: OPEN TO OPPORTUNITIES</div>
             <p class="hero-greeting mb-2">Hi, my name is</p>
             <h1 class="hero-name mb-3">Diarra Alifa<br />Pratama</h1>
-            <p class="hero-desc mb-4">
-              I'm a Junior Web Developer and Junior IT Support Specialist based in Bandung, Indonesia — building clean,
-              functional interfaces and, off the clock, taking PC hardware apart to see how it
-              all fits back together.
-            </p>
-
-            <div class="d-flex flex-wrap gap-2 mb-4">
-              <a href="#projects" class="btn btn-signal rounded-0 px-4 py-2">View Projects</a>
-              <a href="#repositories" class="btn btn-outline-ink rounded-0 px-4 py-2">View Repositories</a>
-            </div>
-
-            <div class="d-flex flex-wrap gap-3 gap-lg-4 hero-tags">
-              <div class="info-plate"><span class="info-label">Role</span>Web Developer</div>
-              <div class="info-plate"><span class="info-label">Focus</span>Frontend &amp; Backend</div>
-              <div class="info-plate"><span class="info-label">Based in</span>Bandung, ID</div>
-            </div>
+            <p class="hero-desc mb-4">I'm a Junior Web Developer and IT Support Specialist based in Bandung, Indonesia — building practical web applications with PHP, Laravel, JavaScript and MySQL, backed by hands-on experience in troubleshooting, maintenance and end-user support.</p>
+            <div class="d-flex flex-wrap gap-2 mb-4"><a href="#projects" class="btn btn-signal rounded-0 px-4 py-2">View Projects</a><a href="#experience" class="btn btn-outline-ink rounded-0 px-4 py-2">View Experience</a></div>
+            <div class="d-flex flex-wrap gap-3 gap-lg-4 hero-tags"><div class="info-plate"><span class="info-label">Role</span>Junior Developer</div><div class="info-plate"><span class="info-label">Focus</span>PHP &amp; IT Support</div><div class="info-plate"><span class="info-label">Based in</span>Bandung, ID</div></div>
           </div>
-
           <div class="col-lg-5 reveal" data-reveal-delay="120">
-            <!-- Abstract urban grid illustration, custom inline SVG (no external image assets) -->
             <svg class="hero-graphic" viewBox="0 0 480 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Abstract illustration of a city skyline grid with a location marker over Bandung">
-              <defs>
-                <pattern id="gridPattern" width="24" height="24" patternUnits="userSpaceOnUse">
-                  <path d="M 24 0 L 0 0 0 24" fill="none" stroke="#D9D9D4" stroke-width="1"/>
-                </pattern>
-              </defs>
+              <defs><pattern id="gridPattern" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M 24 0 L 0 0 0 24" fill="none" stroke="#D9D9D4" stroke-width="1"/></pattern></defs>
               <rect x="0" y="0" width="480" height="420" fill="url(#gridPattern)" />
-
-              <!-- buildings -->
-              <g stroke="#16171A" stroke-width="2" fill="none">
-                <rect x="40"  y="260" width="46" height="140"/>
-                <rect x="96"  y="210" width="46" height="190"/>
-                <rect x="152" y="290" width="46" height="110"/>
-                <rect x="208" y="150" width="52" height="250" class="building-signature"/>
-                <rect x="270" y="240" width="46" height="160"/>
-                <rect x="326" y="200" width="46" height="200"/>
-                <rect x="382" y="270" width="46" height="130"/>
-              </g>
-              <g stroke="#6E7176" stroke-width="1.5">
-                <line x1="40" y1="290" x2="86" y2="290"/>
-                <line x1="96" y1="250" x2="142" y2="250"/>
-                <line x1="270" y1="280" x2="316" y2="280"/>
-                <line x1="326" y1="240" x2="372" y2="240"/>
-                <line x1="382" y1="300" x2="428" y2="300"/>
-              </g>
-
-              <!-- location pin above the signature building -->
-              <g class="map-pin">
-                <circle cx="234" cy="120" r="34" fill="none" stroke="#FFCC00" stroke-width="2" class="pin-pulse"/>
-                <circle cx="234" cy="120" r="9" fill="#FFCC00" stroke="#16171A" stroke-width="2"/>
-              </g>
+              <g stroke="#16171A" stroke-width="2" fill="none"><rect x="40" y="260" width="46" height="140"/><rect x="96" y="210" width="46" height="190"/><rect x="152" y="290" width="46" height="110"/><rect x="208" y="150" width="52" height="250" class="building-signature"/><rect x="270" y="240" width="46" height="160"/><rect x="326" y="200" width="46" height="200"/><rect x="382" y="270" width="46" height="130"/></g>
+              <g stroke="#6E7176" stroke-width="1.5"><line x1="40" y1="290" x2="86" y2="290"/><line x1="96" y1="250" x2="142" y2="250"/><line x1="270" y1="280" x2="316" y2="280"/><line x1="326" y1="240" x2="372" y2="240"/><line x1="382" y1="300" x2="428" y2="300"/></g>
+              <g class="map-pin"><circle cx="234" cy="120" r="34" fill="none" stroke="#FFCC00" stroke-width="2" class="pin-pulse"/><circle cx="234" cy="120" r="9" fill="#FFCC00" stroke="#16171A" stroke-width="2"/></g>
               <text x="234" y="70" text-anchor="middle" class="pin-text">BANDUNG, ID</text>
             </svg>
           </div>
         </div>
       </div>
     </section>
-
-    <!-- ============================= -->
-    <!-- ABOUT -->
-    <!-- ============================= -->
     <section id="about" class="section-band">
       <div class="container px-3 px-lg-5">
-        <div class="section-eyebrow reveal"><span class="eyebrow-num">02</span> About</div>
-        <h2 class="section-title mb-5 reveal">Who I am</h2>
-
+        <div class="section-eyebrow reveal"><span class="eyebrow-num">02</span> About</div><h2 class="section-title mb-5 reveal">Who I am</h2>
         <div class="row gy-5">
           <div class="col-lg-6 reveal">
-            <p class="body-text mb-4">
-              I'm currently focused on Web Development — designing and building interfaces
-              that are clean, responsive and easy to use, then wiring them up to the logic
-              and databases that make them actually work. I enjoy the full stack: from
-              structuring a layout in the browser to writing the backend that serves it.
-            </p>
-            <p class="body-text mb-4">
-              Outside of writing code, I have a strong interest in PC hardware — researching
-              components, understanding how a build comes together, and keeping up with what's
-              new in the space. That same curiosity about how things are put together carries
-              straight over into how I approach a codebase.
-            </p>
-
-            <div class="d-flex flex-wrap gap-2 mt-4">
-              <span class="tech-tag">HTML</span>
-              <span class="tech-tag">CSS</span>
-              <span class="tech-tag">JavaScript</span>
-              <span class="tech-tag">PHP</span>
-              <span class="tech-tag">MySQL</span>
-              <span class="tech-tag">Bootstrap 5</span>
-            </div>
+            <p class="body-text mb-4">I'm focused on Web Development — designing and building clean, responsive interfaces, then connecting them to backend logic and databases that make them work. I enjoy working across the stack, from browser-side structure to PHP backend development.</p>
+            <p class="body-text mb-4">I also have hands-on IT Support experience, including device troubleshooting, software support, maintenance and end-user assistance. Outside of work, I enjoy learning about PC hardware and understanding how systems fit together.</p>
+            <div class="d-flex flex-wrap gap-2 mt-4"><span class="tech-tag">PHP</span><span class="tech-tag">Laravel</span><span class="tech-tag">JavaScript</span><span class="tech-tag">MySQL</span><span class="tech-tag">HTML5</span><span class="tech-tag">Bootstrap 5</span><span class="tech-tag">Git</span></div>
           </div>
-
           <div class="col-lg-6 reveal" data-reveal-delay="120">
             <div class="internship-card">
-              <div class="internship-header">
-                <span class="info-label">Internship</span>
-                <h3 class="internship-company mb-1">HARRIS Hotel &amp; Conventions Festival Citylink Bandung</h3>
-                <p class="internship-role mb-0">IT Support · Aug 2025 – Dec 2025</p>
-              </div>
-
+              <div class="internship-header"><span class="info-label">Core Focus</span><h3 class="internship-company mb-1">Web Development + IT Support</h3><p class="internship-role mb-0">Building software while understanding the systems and users behind it.</p></div>
               <ol class="internship-timeline">
-                <li>
-                  <span class="timeline-marker">01</span>
-                  <div>
-                    <p class="timeline-title mb-1">OS Installation &amp; Configuration</p>
-                    <p class="timeline-desc mb-0">
-                      Performed Windows operating system installation and configuration
-                      on company devices.
-                    </p>
-                  </div>
-                </li>
-                <li>
-                  <span class="timeline-marker">02</span>
-                  <div>
-                    <p class="timeline-title mb-1">Hardware &amp; Network Troubleshooting</p>
-                    <p class="timeline-desc mb-0">
-                      Handled hardware, software, and basic network troubleshooting
-                      for staff and operational devices.
-                    </p>
-                  </div>
-                </li>
-                <li>
-                  <span class="timeline-marker">03</span>
-                  <div>
-                    <p class="timeline-title mb-1">Preventive Maintenance</p>
-                    <p class="timeline-desc mb-0">
-                      Conducted preventive maintenance for computer devices and
-                      printers to keep downtime low.
-                    </p>
-                  </div>
-                </li>
-                <li>
-                  <span class="timeline-marker">04</span>
-                  <div>
-                    <p class="timeline-title mb-1">End-User Support</p>
-                    <p class="timeline-desc mb-0">
-                      Provided direct technical support to end users across the
-                      hotel and conventions facility.
-                    </p>
-                  </div>
-                </li>
+                <li><span class="timeline-marker">01</span><div><p class="timeline-title mb-1">Backend Development</p><p class="timeline-desc mb-0">PHP, Laravel, MySQL, REST APIs, authentication and role-based access control.</p></div></li>
+                <li><span class="timeline-marker">02</span><div><p class="timeline-title mb-1">Application Development</p><p class="timeline-desc mb-0">CRUD workflows, database design, file handling and practical business applications.</p></div></li>
+                <li><span class="timeline-marker">03</span><div><p class="timeline-title mb-1">IT Support</p><p class="timeline-desc mb-0">Windows, hardware/software troubleshooting, basic networking and preventive maintenance.</p></div></li>
+                <li><span class="timeline-marker">04</span><div><p class="timeline-title mb-1">User Support</p><p class="timeline-desc mb-0">Technical assistance with a practical focus on resolving user and operational issues.</p></div></li>
               </ol>
             </div>
           </div>
         </div>
       </div>
     </section>
-
-    <!-- ============================= -->
-    <!-- FEATURED PROJECTS -->
-    <!-- ============================= -->
-    <section id="projects" class="section-band">
+    <section id="experience" class="section-band">
       <div class="container px-3 px-lg-5">
-        <div class="section-eyebrow reveal"><span class="eyebrow-num">03</span> Projects</div>
-        <h2 class="section-title mb-5 reveal">Featured work</h2>
-
+        <div class="section-eyebrow reveal"><span class="eyebrow-num">03</span> Experience</div><h2 class="section-title mb-5 reveal">Hands-on experience</h2>
         <div class="row gy-4">
-          <!-- Project 1: E-Commerce Website (Lead Developer) -->
-          <div class="col-12 col-md-6 reveal">
-            <div class="project-card h-100">
-              <div class="project-card-top">
-                <span class="project-index">01</span>
-                <i class="bi bi-shop project-icon" aria-hidden="true"></i>
-              </div>
-              <h3 class="project-title">E-Commerce Website</h3>
-              <p class="project-desc">
-                Built an e-commerce website as Lead Developer, with full CRUD for product
-                data and transaction management. Designed the user interface and structured
-                the application's database.
-              </p>
-              <div class="d-flex flex-wrap gap-2 mb-4">
-                <span class="tech-tag">HTML</span>
-                <span class="tech-tag">CSS</span>
-                <span class="tech-tag">JavaScript</span>
-                <span class="tech-tag">PHP</span>
-                <span class="tech-tag">MySQL</span>
-              </div>
-              <div class="mt-auto d-flex gap-3">
-                <!-- TODO: replace # with your repository / live demo links -->
-                <a href="#" class="project-link"><i class="bi bi-github"></i> Code</a>
-                <a href="#" class="project-link"><i class="bi bi-box-arrow-up-right"></i> Live</a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Project 2: School Complaint Website (Back-End Developer) -->
-          <div class="col-12 col-md-6 reveal" data-reveal-delay="80">
-            <div class="project-card h-100">
-              <div class="project-card-top">
-                <span class="project-index">02</span>
-                <i class="bi bi-megaphone project-icon" aria-hidden="true"></i>
-              </div>
-              <h3 class="project-title">School Complaint Website</h3>
-              <p class="project-desc">
-                Developed as Back-End Developer — a web-based complaint system with
-                back-end logic for managing reports and user data, built for use within
-                a school environment.
-              </p>
-              <div class="d-flex flex-wrap gap-2 mb-4">
-                <span class="tech-tag">Native PHP</span>
-                <span class="tech-tag">MySQL</span>
-                <span class="tech-tag">Bootstrap 5</span>
-              </div>
-              <div class="mt-auto d-flex gap-3">
-                <a href="#" class="project-link"><i class="bi bi-github"></i> Code</a>
-                <a href="#" class="project-link"><i class="bi bi-box-arrow-up-right"></i> Live</a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Project 3: AI Companion for RPG Games (personal project) -->
-          <div class="col-12 col-md-6 reveal" data-reveal-delay="80">
-            <div class="project-card h-100">
-              <div class="project-card-top">
-                <span class="project-index">03</span>
-                <i class="bi bi-controller project-icon" aria-hidden="true"></i>
-              </div>
-              <h3 class="project-title">AI Companion for RPG Games</h3>
-              <p class="project-desc">
-                A desktop AI assistant that analyzes gameplay through computer vision
-                and OCR — with quest tracking, build recommendations, a daily checklist,
-                and interactive guidance, built on a modular architecture.
-              </p>
-              <div class="d-flex flex-wrap gap-2 mb-4">
-                <span class="tech-tag">Python</span>
-                <span class="tech-tag">Computer Vision</span>
-                <span class="tech-tag">OCR</span>
-                <span class="tech-tag">SQLite</span>
-              </div>
-              <div class="mt-auto d-flex gap-3">
-                <a href="#" class="project-link"><i class="bi bi-github"></i> Code</a>
-                <a href="#" class="project-link"><i class="bi bi-box-arrow-up-right"></i> Live</a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Project 4: Free Game Giveaway Tracker (personal project) -->
-          <div class="col-12 col-md-6 reveal" data-reveal-delay="160">
-            <div class="project-card h-100">
-              <div class="project-card-top">
-                <span class="project-index">04</span>
-                <i class="bi bi-gift project-icon" aria-hidden="true"></i>
-              </div>
-              <h3 class="project-title">Free Game Giveaway Tracker</h3>
-              <p class="project-desc">
-                A web application that aggregates free game promotions from multiple
-                platforms, with automated data collection, notifications, and a clean
-                dashboard for monitoring ongoing giveaways.
-              </p>
-              <div class="d-flex flex-wrap gap-2 mb-4">
-                <span class="tech-tag">Web App</span>
-                <span class="tech-tag">Automation</span>
-                <span class="tech-tag">Dashboard</span>
-              </div>
-              <div class="mt-auto d-flex gap-3">
-                <a href="#" class="project-link"><i class="bi bi-github"></i> Code</a>
-                <a href="#" class="project-link"><i class="bi bi-box-arrow-up-right"></i> Live</a>
-              </div>
-            </div>
-          </div>
+          <div class="col-12 reveal"><div class="project-card h-100"><div class="project-card-top"><span class="project-index">01</span><span class="info-label">Jul 2026 – Sep 2026</span></div><h3 class="project-title">PT Indocitarasa Prima Berjaya</h3><p class="project-role mb-3">IT Support Intern · Bandung</p><p class="project-desc">Supported day-to-day IT operations through device troubleshooting, software support, maintenance and technical assistance for users.</p><div class="d-flex flex-wrap gap-2"><span class="tech-tag">IT Support</span><span class="tech-tag">Troubleshooting</span><span class="tech-tag">Windows</span><span class="tech-tag">Hardware</span></div></div></div>
+          <div class="col-12 reveal" data-reveal-delay="80"><div class="project-card h-100"><div class="project-card-top"><span class="project-index">02</span><span class="info-label">Aug 2025 – Dec 2025</span></div><h3 class="project-title">HARRIS Hotel &amp; Conventions Festival Citylink Bandung</h3><p class="project-role mb-3">IT Support Intern · Bandung</p><p class="project-desc">Performed Windows installation and configuration, hardware/software/basic network troubleshooting, preventive maintenance and end-user support for hotel and convention operations.</p><div class="d-flex flex-wrap gap-2"><span class="tech-tag">Windows</span><span class="tech-tag">Networking</span><span class="tech-tag">Maintenance</span><span class="tech-tag">User Support</span></div></div></div>
         </div>
       </div>
     </section>
-
-    <!-- ============================= -->
-    <!-- GITHUB REPOSITORIES (dynamic) -->
-    <!-- ============================= -->
+    <section id="projects" class="section-band">
+      <div class="container px-3 px-lg-5">
+        <div class="section-eyebrow reveal"><span class="eyebrow-num">04</span> Projects</div><h2 class="section-title mb-5 reveal">Featured work</h2>
+        <div class="row gy-4">
+          <div class="col-12 col-md-6 reveal"><div class="project-card h-100"><div class="project-card-top"><span class="project-index">01</span><i class="bi bi-ticket-perforated project-icon" aria-hidden="true"></i></div><h3 class="project-title">SupportFlow</h3><p class="project-desc">A custom PHP MVC helpdesk system with authentication, role-based access control, ticket workflows, comments, attachments, settings and audit-ready activity tracking.</p><div class="d-flex flex-wrap gap-2 mb-4"><span class="tech-tag">PHP</span><span class="tech-tag">MySQL</span><span class="tech-tag">PDO</span><span class="tech-tag">MVC</span><span class="tech-tag">RBAC</span></div><div class="mt-auto"><a href="https://github.com/InterSky-Codex/SupportFlow" target="_blank" rel="noopener" class="project-link"><i class="bi bi-github"></i> Code</a></div></div></div>
+          <div class="col-12 col-md-6 reveal" data-reveal-delay="80"><div class="project-card h-100"><div class="project-card-top"><span class="project-index">02</span><i class="bi bi-gift project-icon" aria-hidden="true"></i></div><h3 class="project-title">FreeGameHub</h3><p class="project-desc">A web platform for discovering free game promotions, using external game data and a dashboard-oriented frontend/backend architecture.</p><div class="d-flex flex-wrap gap-2 mb-4"><span class="tech-tag">Laravel</span><span class="tech-tag">Next.js</span><span class="tech-tag">JavaScript</span><span class="tech-tag">REST API</span></div><div class="mt-auto"><a href="https://github.com/InterSky-Codex/FreeGameHub" target="_blank" rel="noopener" class="project-link"><i class="bi bi-github"></i> Code</a></div></div></div>
+          <div class="col-12 col-md-6 reveal" data-reveal-delay="80"><div class="project-card h-100"><div class="project-card-top"><span class="project-index">03</span><i class="bi bi-cart3 project-icon" aria-hidden="true"></i></div><h3 class="project-title">Rinjani Mart</h3><p class="project-desc">A full-stack e-commerce application with a JavaScript frontend, Express REST backend, SQLite database and transactional checkout flow.</p><div class="d-flex flex-wrap gap-2 mb-4"><span class="tech-tag">Node.js</span><span class="tech-tag">Express</span><span class="tech-tag">SQLite</span><span class="tech-tag">JavaScript</span></div><div class="mt-auto"><a href="https://github.com/InterSky-Codex/Rinjani-Mart" target="_blank" rel="noopener" class="project-link"><i class="bi bi-github"></i> Code</a></div></div></div>
+          <div class="col-12 col-md-6 reveal" data-reveal-delay="160"><div class="project-card h-100"><div class="project-card-top"><span class="project-index">04</span><i class="bi bi-megaphone project-icon" aria-hidden="true"></i></div><h3 class="project-title">SuaraSiswa</h3><p class="project-desc">A school complaint application built with native PHP, MySQL and Bootstrap, including complaint handling, replies, dashboard statistics and file uploads.</p><div class="d-flex flex-wrap gap-2 mb-4"><span class="tech-tag">PHP</span><span class="tech-tag">MySQL</span><span class="tech-tag">Bootstrap</span><span class="tech-tag">CRUD</span></div><div class="mt-auto"><a href="https://github.com/InterSky-Codex/pengaduanapp" target="_blank" rel="noopener" class="project-link"><i class="bi bi-github"></i> Code</a></div></div></div>
+        </div>
+      </div>
+    </section>
+    <section id="skills" class="section-band">
+      <div class="container px-3 px-lg-5">
+        <div class="section-eyebrow reveal"><span class="eyebrow-num">05</span> Skills</div><h2 class="section-title mb-5 reveal">What I work with</h2>
+        <div class="row gy-4">
+          <div class="col-md-6 col-lg-3 reveal"><div class="project-card h-100"><span class="info-label">Web Development</span><h3 class="project-title mt-3">01</h3><div class="d-flex flex-wrap gap-2"><span class="tech-tag">PHP</span><span class="tech-tag">Laravel</span><span class="tech-tag">JavaScript</span><span class="tech-tag">HTML5</span><span class="tech-tag">CSS3</span><span class="tech-tag">Bootstrap</span></div></div></div>
+          <div class="col-md-6 col-lg-3 reveal" data-reveal-delay="60"><div class="project-card h-100"><span class="info-label">Backend &amp; Data</span><h3 class="project-title mt-3">02</h3><div class="d-flex flex-wrap gap-2"><span class="tech-tag">MySQL</span><span class="tech-tag">SQLite</span><span class="tech-tag">REST API</span><span class="tech-tag">PDO</span><span class="tech-tag">MVC</span><span class="tech-tag">RBAC</span></div></div></div>
+          <div class="col-md-6 col-lg-3 reveal" data-reveal-delay="120"><div class="project-card h-100"><span class="info-label">IT Support</span><h3 class="project-title mt-3">03</h3><div class="d-flex flex-wrap gap-2"><span class="tech-tag">Windows</span><span class="tech-tag">Hardware</span><span class="tech-tag">Troubleshooting</span><span class="tech-tag">Networking</span><span class="tech-tag">Maintenance</span><span class="tech-tag">User Support</span></div></div></div>
+          <div class="col-md-6 col-lg-3 reveal" data-reveal-delay="180"><div class="project-card h-100"><span class="info-label">Tools</span><h3 class="project-title mt-3">04</h3><div class="d-flex flex-wrap gap-2"><span class="tech-tag">Git</span><span class="tech-tag">GitHub</span><span class="tech-tag">VS Code</span><span class="tech-tag">Laragon</span><span class="tech-tag">Postman</span></div></div></div>
+        </div>
+      </div>
+    </section>
     <section id="repositories" class="section-band">
       <div class="container px-3 px-lg-5">
-        <div class="section-eyebrow reveal"><span class="eyebrow-num">04</span> Repositories</div>
-        <div class="d-flex flex-wrap justify-content-between align-items-end mb-5 gap-3">
-          <h2 class="section-title mb-0 reveal">Pulled live from GitHub</h2>
-          <p class="repo-sub reveal mb-0">Fetched in real time via the GitHub REST API.</p>
-        </div>
-
-        <!-- Populated dynamically by script.js -->
-        <div id="repo-status" class="repo-status" role="status" aria-live="polite"></div>
-        <div id="repo-grid" class="row gy-4"></div>
-
-        <div class="text-center mt-5">
-          <!-- href is set dynamically by script.js to match GITHUB_USERNAME -->
-          <a id="repo-profile-link" href="#" target="_blank" rel="noopener" class="btn btn-outline-ink rounded-0 px-4 py-2">
-            View full GitHub profile <i class="bi bi-arrow-up-right ms-1"></i>
-          </a>
-        </div>
+        <div class="section-eyebrow reveal"><span class="eyebrow-num">06</span> GitHub</div><div class="d-flex flex-wrap justify-content-between align-items-end mb-5 gap-3"><h2 class="section-title mb-0 reveal">Pulled live from GitHub</h2><p class="repo-sub reveal mb-0">Fetched in real time via the GitHub REST API.</p></div>
+        <div id="repo-status" class="repo-status" role="status" aria-live="polite"></div><div id="repo-grid" class="row gy-4"></div>
+        <div class="text-center mt-5"><a id="repo-profile-link" href="#" target="_blank" rel="noopener" class="btn btn-outline-ink rounded-0 px-4 py-2">View full GitHub profile <i class="bi bi-arrow-up-right ms-1"></i></a></div>
       </div>
     </section>
   </main>
-
-  <!-- ============================= -->
-  <!-- FOOTER / CONTACT -->
-  <!-- ============================= -->
   <footer id="contact" class="footer-section">
     <div class="container px-3 px-lg-5">
-      <div class="section-eyebrow section-eyebrow-light reveal"><span class="eyebrow-num">05</span> Contact</div>
-      <h2 class="footer-title reveal mb-4">Let's build<br />something together.</h2>
-
-      <!-- TODO: replace with your real email address -->
-      <a href="mailto:diarraalifa64@gmail.com" class="footer-email reveal d-inline-block mb-5">
-        diarraalifa64@gmail.com
-      </a>
-
-      <div class="row gy-4 align-items-end">
-        <div class="col-lg-8">
-          <div class="d-flex flex-wrap gap-3 reveal" id="social-links">
-            <!-- TODO: replace # with your real profile URLs -->
-            <a href="https://github.com/InterSky-Codex" target="_blank" rel="noopener" class="social-link"><i class="bi bi-github"></i> GitHub</a>
-            <a href="https://www.linkedin.com/in/diarra-alifa-pratama-21979628b" target="_blank" rel="noopener" class="social-link"><i class="bi bi-linkedin"></i> LinkedIn</a>
-            <a href="https://www.instagram.com/inter_sky_1/" target="_blank" rel="noopener" class="social-link"><i class="bi bi-instagram"></i> Instagram</a>
-            <a href="mailto:diarraalifa64@gmail.com" class="social-link"><i class="bi bi-envelope"></i> Email</a>
-          </div>
-        </div>
-        <div class="col-lg-4 text-lg-end">
-          <p class="footer-meta mb-0">Bandung, Indonesia</p>
-          <p class="footer-meta mb-0">© <span id="year"></span> Diarra Alifa Pratama</p>
-        </div>
-      </div>
+      <div class="section-eyebrow section-eyebrow-light reveal"><span class="eyebrow-num">07</span> Contact</div><h2 class="footer-title reveal mb-4">Let's build<br />something together.</h2>
+      <a href="mailto:diarraalifa64@gmail.com" class="footer-email reveal d-inline-block mb-5">diarraalifa64@gmail.com</a>
+      <div class="row gy-4 align-items-end"><div class="col-lg-8"><div class="d-flex flex-wrap gap-3 reveal" id="social-links"><a href="https://github.com/InterSky-Codex" target="_blank" rel="noopener" class="social-link"><i class="bi bi-github"></i> GitHub</a><a href="https://www.linkedin.com/in/diarra-alifa-pratama-21979628b" target="_blank" rel="noopener" class="social-link"><i class="bi bi-linkedin"></i> LinkedIn</a><a href="https://www.instagram.com/inter_sky_1/" target="_blank" rel="noopener" class="social-link"><i class="bi bi-instagram"></i> Instagram</a><a href="mailto:diarraalifa64@gmail.com" class="social-link"><i class="bi bi-envelope"></i> Email</a></div></div><div class="col-lg-4 text-lg-end"><p class="footer-meta mb-0">Bandung, Indonesia</p><p class="footer-meta mb-0">© <span id="year"></span> Diarra Alifa Pratama</p></div></div>
     </div>
   </footer>
-
-  <!-- Back to top -->
-  <button id="backToTop" class="back-to-top" aria-label="Back to top">
-    <i class="bi bi-arrow-up"></i>
-  </button>
-
-  <!-- Bootstrap 5 JS bundle (includes Popper) -->
+  <button id="backToTop" class="back-to-top" aria-label="Back to top"><i class="bi bi-arrow-up"></i></button>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="script.js"></script>
 </body>
